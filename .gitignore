@@ -22,7 +22,7 @@ Thumbs.db
 
 # Model files
 *.pkl
-*.joblib
+# *.joblib
 
 # Node / Frontend
 node_modules/
