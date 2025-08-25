@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🌍 Carbon Emission Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 min-h-screen">
+  <div class="max-w-6xl mx-auto p-4 md:p-8">
+    <div class="bg-white rounded-2xl shadow-md p-6 md:p-8">
+      <h2 class="text-2xl md:text-3xl font-semibold text-blue-700 text-center mb-6">
+        Carbon Emission Predictor 🌍
+      </h2>
+
+      <form id="prediction-form" class="grid gap-6">
+        <!-- Sections -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+          <!-- Personal & Lifestyle -->
+          <div class="bg-slate-50 rounded-xl p-5">
+            <h3 class="text-lg font-semibold text-slate-700 mb-4">Lifestyle & Personal</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div class="flex flex-col">
+                <label for="Body_Type" class="mb-1 text-sm font-medium text-slate-700">Body Type</label>
+                <select id="Body_Type" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="overweight">Overweight</option>
+                  <option value="obese">Obese</option>
+                  <option value="normal">Normal</option>
+                  <option value="underweight">Underweight</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="Sex" class="mb-1 text-sm font-medium text-slate-700">Sex</label>
+                <select id="Sex" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="Diet" class="mb-1 text-sm font-medium text-slate-700">Diet</label>
+                <select id="Diet" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="omnivore">Omnivore</option>
+                  <option value="pescatarian">Pescatarian</option>
+                  <option value="vegetarian">Vegetarian</option>
+                  <option value="vegan">Vegan</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="How_Often_Shower" class="mb-1 text-sm font-medium text-slate-700">How Often Shower</label>
+                <select id="How_Often_Shower" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="daily">Daily</option>
+                  <option value="twice a day">Twice a day</option>
+                  <option value="more frequently">More frequently</option>
+                  <option value="less frequently">Less frequently</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="Social_Activity" class="mb-1 text-sm font-medium text-slate-700">Social Activity</label>
+                <select id="Social_Activity" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="often">Often</option>
+                  <option value="sometimes">Sometimes</option>
+                  <option value="never">Never</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="Frequency_of_Traveling_by_Air" class="mb-1 text-sm font-medium text-slate-700">Frequency of Air Travel</label>
+                <select id="Frequency_of_Traveling_by_Air" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="rarely">Rarely</option>
+                  <option value="frequently">Frequently</option>
+                  <option value="very frequently">Very Frequently</option>
+                  <option value="never">Never</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Home & Transport -->
+          <div class="bg-slate-50 rounded-xl p-5">
+            <h3 class="text-lg font-semibold text-slate-700 mb-4">Home & Transport</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div class="flex flex-col">
+                <label for="Heating_Energy_Source" class="mb-1 text-sm font-medium text-slate-700">Heating Energy Source</label>
+                <select id="Heating_Energy_Source" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="natural gas">Natural Gas</option>
+                  <option value="electricity">Electricity</option>
+                  <option value="coal">Coal</option>
+                  <option value="wood">Wood</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="Energy_efficiency" class="mb-1 text-sm font-medium text-slate-700">Energy Efficiency Conscious</label>
+                <select id="Energy_efficiency" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Sometimes">Sometimes</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="Transport" class="mb-1 text-sm font-medium text-slate-700">Transport</label>
+                <select id="Transport" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="private">Private</option>
+                  <option value="public">Public</option>
+                  <option value="walk/bicycle">Walk/Bicycle</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="Vehicle_Type" class="mb-1 text-sm font-medium text-slate-700">Vehicle Type</label>
+                <select id="Vehicle_Type" required class="w-full rounded-md border border-slate-300 p-2">
+                  <option value="No_Vehicle">No Vehicle</option>
+                  <option value="petrol">Petrol</option>
+                  <option value="diesel">Diesel</option>
+                  <option value="hybrid">Hybrid</option>
+                  <option value="lpg">LPG</option>
+                  <option value="electric">Electric</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+  <label for="Waste_Bag_Size" class="block text-sm font-medium text-gray-700 mb-1">
+    Waste Bag Size
+  </label>
+  <select id="Waste_Bag_Size" name="Waste_Bag_Size" required 
+    class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+    <option value="small">Small</option>
+    <option value="extra large">Extra Large</option>
+  </select>
+</div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Numbers -->
+        <div class="bg-slate-50 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-slate-700 mb-4">Numeric Inputs</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+            <div class="flex flex-col">
+              <label for="Monthly_Grocery_Bill" class="mb-1 text-sm font-medium text-slate-700">Monthly Grocery Bill ($)</label>
+              <input id="Monthly_Grocery_Bill" type="number" required min="0" step="1" value="200" class="rounded-md border border-slate-300 p-2" />
+            </div>
+
+            <div class="flex flex-col">
+              <label for="Vehicle_Monthly_Distance_Km" class="mb-1 text-sm font-medium text-slate-700">Vehicle Monthly Distance (Km)</label>
+              <input id="Vehicle_Monthly_Distance_Km" type="number" required min="0" step="1" value="1000" class="rounded-md border border-slate-300 p-2" />
+            </div>
+
+            <div class="flex flex-col">
+              <label for="Waste_Bag_Weekly_Count" class="mb-1 text-sm font-medium text-slate-700">Waste Bags per Week</label>
+              <input id="Waste_Bag_Weekly_Count" type="number" required min="0" step="1" value="4" class="rounded-md border border-slate-300 p-2" />
+            </div>
+
+            <div class="flex flex-col">
+              <label for="How_Long_TV_PC_Daily_Hour" class="mb-1 text-sm font-medium text-slate-700">Daily TV/PC Hours</label>
+              <input id="How_Long_TV_PC_Daily_Hour" type="number" required min="0" max="24" step="0.5" value="5" class="rounded-md border border-slate-300 p-2" />
+            </div>
+
+            <div class="flex flex-col">
+              <label for="How_Many_New_Clothes_Monthly" class="mb-1 text-sm font-medium text-slate-700">New Clothes per Month</label>
+              <input id="How_Many_New_Clothes_Monthly" type="number" required min="0" step="1" value="2" class="rounded-md border border-slate-300 p-2" />
+            </div>
+
+            <div class="flex flex-col">
+              <label for="How_Long_Internet_Daily_Hour" class="mb-1 text-sm font-medium text-slate-700">Daily Internet Hours</label>
+              <input id="How_Long_Internet_Daily_Hour" type="number" required min="0" max="24" step="0.5" value="6" class="rounded-md border border-slate-300 p-2" />
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Multi-select / Lists -->
+        <div class="bg-slate-50 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-slate-700 mb-4">Recycling & Cooking</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Recycling -->
+            <div>
+              <p class="text-sm font-medium text-slate-700 mb-2">What do you recycle?</p>
+              <div class="flex flex-wrap gap-4">
+                <label class="inline-flex items-center gap-2">
+                  <input id="rec_paper" type="checkbox" value="Paper" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Paper</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input id="rec_plastic" type="checkbox" value="Plastic" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Plastic</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input id="rec_glass" type="checkbox" value="Glass" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Glass</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input id="rec_metal" type="checkbox" value="Metal" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Metal</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cooking With -->
+            <div>
+              <p class="text-sm font-medium text-slate-700 mb-2">How do you cook?</p>
+              <div class="flex flex-wrap gap-4">
+                <label class="inline-flex items-center gap-2">
+                  <input id="cook_stove" type="checkbox" value="Stove" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Stove</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input id="cook_oven" type="checkbox" value="Oven" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Oven</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input id="cook_microwave" type="checkbox" value="Microwave" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Microwave</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input id="cook_grill" type="checkbox" value="Grill" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Grill</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input id="cook_airfryer" type="checkbox" value="Airfryer" class="h-4 w-4 rounded border-slate-300" />
+                  <span>Airfryer</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="flex items-center justify-center">
+          <button id="submitBtn" type="submit"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 active:bg-blue-800 transition">
+            <svg id="spinner" class="hidden animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <span>Predict Emission</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Result -->
+      <div id="result" class="mt-6 text-center"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('prediction-form');
+    const resultDiv = document.getElementById('result');
+    const submitBtn = document.getElementById('submitBtn');
+    const spinner = document.getElementById('spinner');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Build arrays from checkboxes
+      const recyclingIds = ['rec_paper', 'rec_plastic', 'rec_glass', 'rec_metal'];
+      const Recycling = recyclingIds
+        .filter(id => document.getElementById(id).checked)
+        .map(id => document.getElementById(id).value);
+
+      const cookingIds = ['cook_stove', 'cook_oven', 'cook_microwave', 'cook_grill', 'cook_airfryer'];
+      const Cooking_With = cookingIds
+        .filter(id => document.getElementById(id).checked)
+        .map(id => document.getElementById(id).value);
+
+      // Collect all other values (IDs EXACTLY as you provided)
+      const payload = {
+        Body_Type: document.getElementById('Body_Type').value,
+        Sex: document.getElementById('Sex').value,
+        Diet: document.getElementById('Diet').value,
+        How_Often_Shower: document.getElementById('How_Often_Shower').value,
+        Heating_Energy_Source: document.getElementById('Heating_Energy_Source').value,
+        Transport: document.getElementById('Transport').value,
+        Vehicle_Type: document.getElementById('Vehicle_Type').value,
+        Social_Activity: document.getElementById('Social_Activity').value,
+        Frequency_of_Traveling_by_Air: document.getElementById('Frequency_of_Traveling_by_Air').value,
+        Waste_Bag_Size: document.getElementById('Waste_Bag_Size').value,
+        Energy_efficiency: document.getElementById('Energy_efficiency').value,
+        Monthly_Grocery_Bill: Number(document.getElementById('Monthly_Grocery_Bill').value),
+        Vehicle_Monthly_Distance_Km: Number(document.getElementById('Vehicle_Monthly_Distance_Km').value),
+        Waste_Bag_Weekly_Count: Number(document.getElementById('Waste_Bag_Weekly_Count').value),
+        How_Long_TV_PC_Daily_Hour: Number(document.getElementById('How_Long_TV_PC_Daily_Hour').value),
+        How_Many_New_Clothes_Monthly: Number(document.getElementById('How_Many_New_Clothes_Monthly').value),
+        How_Long_Internet_Daily_Hour: Number(document.getElementById('How_Long_Internet_Daily_Hour').value),
+        Recycling: Recycling,
+        Cooking_With: Cooking_With
+      };
+
+      // UI: loading state
+      submitBtn.disabled = true;
+      spinner.classList.remove('hidden');
+      resultDiv.innerHTML = '<div class="text-slate-600">Calculating…</div>';
+
+      try {
+        const res = await fetch('http://127.0.0.1:8000/predict', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error(errText || 'Request failed');
+        }
+
+        const data = await res.json();
+        const value = Number(data.CarbonEmission);
+
+        resultDiv.innerHTML = `
+          <div class="mx-auto max-w-md mt-4 p-4 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800">
+            <div class="text-sm uppercase tracking-wide font-semibold">Predicted Carbon Emission</div>
+            <div class="text-2xl font-bold mt-1">${isFinite(value) ? value.toFixed(2) : data.CarbonEmission} <span class="text-base font-medium">kg CO₂e</span></div>
+          </div>
+        `;
+      } catch (err) {
+        console.error(err);
+        resultDiv.innerHTML = `
+          <div class="mx-auto max-w-md mt-4 p-4 rounded-xl border border-red-200 bg-red-50 text-red-700">
+            <div class="font-semibold mb-1">Error predicting carbon emission</div>
+            <div class="text-sm break-all">${(err && err.message) ? err.message : 'Unknown error'}</div>
+          </div>
+        `;
+      } finally {
+        submitBtn.disabled = false;
+        spinner.classList.add('hidden');
+      }
+    });
+  
+  const transportSelect = document.getElementById("Transport");
+  const vehicleTypeSelect = document.getElementById("Vehicle_Type");
+
+  transportSelect.addEventListener("change", function () {
+    const selectedTransport = this.value;
+
+    // Reset vehicle type dropdown
+    vehicleTypeSelect.innerHTML = "";
+
+    if (selectedTransport === "private") {
+      const options = ["Diesel", "Petrol", "Hybrid", "Electric", "LPG"];
+      options.forEach(opt => {
+        const optionElement = document.createElement("option");
+        optionElement.value = opt.toLowerCase();
+        optionElement.textContent = opt;
+        vehicleTypeSelect.appendChild(optionElement);
+      });
+      vehicleTypeSelect.disabled = false;
+    } else {
+      const optionElement = document.createElement("option");
+      optionElement.value = "None";
+      optionElement.textContent = "None";
+      vehicleTypeSelect.appendChild(optionElement);
+      vehicleTypeSelect.disabled = true;
+    }
+  });
+</script>
+</body>
+</html>
