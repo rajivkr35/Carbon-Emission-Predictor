@@ -9,15 +9,15 @@ import uvicorn
 app = FastAPI()
 
 # CORS setup
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-    "https://fascinating-rabanadas-929813.netlify.app",  # Netlify frontend
-]
+# origins = [
+#     "http://localhost",
+#     "http://localhost:3000",
+#     # "https://fascinating-rabanadas-929813.netlify.app",  # Netlify frontend
+# ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,   # exact origins
+    allow_origins=["https://fascinating-rabanadas-929813.netlify.app"],   # exact origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
