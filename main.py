@@ -7,19 +7,22 @@ import joblib
 
 app = FastAPI()
 
+# CORS setup
 origins = [
     "http://localhost",
     "http://localhost:3000",
-    "https://fascinating-rabanadas-929813.netlify.app",
+    "https://fascinating-rabanadas-929813.netlify.app",  # Netlify frontend
 ]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # frontend URL
+    allow_origins=origins,   # exact origins
     allow_credentials=True,
-    allow_methods=["*"],  # GET, POST, etc.
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Load model pipeline
 model_pipeline = joblib.load("carbon_pipeline.joblib")
 
 class InputData(BaseModel):
@@ -42,6 +45,11 @@ class InputData(BaseModel):
     How_Long_Internet_Daily_Hour: float
     Recycling: List[str] = []
     Cooking_With: List[str] = []
+
+# ✅ Root route for Render testing
+@app.get("/")
+def root():
+    return {"message": "Carbon Emission Predictor API is running."}
 
 def preprocess_lists(df):
     for col in ["Recycling", "Cooking_With"]:
@@ -79,7 +87,7 @@ def predict(data: InputData):
         df = pd.DataFrame([input_dict])
         df = preprocess_lists(df)
 
-        # Ensure all model features exist in df (missing columns get 0)
+        # Align with pipeline
         for col in model_pipeline.feature_names_in_:
             if col not in df.columns:
                 df[col] = 0
